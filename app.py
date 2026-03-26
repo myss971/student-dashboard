@@ -62,10 +62,3 @@ st.metric("Overall Average Score", round(avg_score, 2))
 
 # Convert to CSV for download
 csv = report_card.to_csv(index=False).encode("utf-8")
-
-st.download_button(
-    label="Download Report Card (CSV)",
-    data=csv,
-    file_name=f"{student}_report_card.csv",
-    mime="text/csv",
-)
