@@ -33,7 +33,7 @@ st.subheader(f"Report Card: {student}")
 st.table(report_card)
 
 # Average score (ignore NaN)
-avg_score = report_card["Score"].replace("Absent", pd.NA).dropna().astype(int).mean()
+avg_score = report_card["Score"].replace(" ", pd.NA).dropna().astype(int).mean()
 st.metric("Overall Average Score", round(avg_score, 0))
 
 # PDF generator
