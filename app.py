@@ -13,7 +13,7 @@ subjects = ["BM","BI","MM","SAINS","SEJ","PAI","PM","RBT","PSV","PJPK","GEO","BI
 for col in subjects:
     df[col] = pd.to_numeric(df[col], errors="coerce").astype("Int64")
 
-st.title("📊 Academic Performance Dashboard")
+st.title("Dashboard Pelajar")
 
 kelas = st.selectbox("Select Class", sorted(df["KELAS"].unique()))
 filtered_class = df[df["KELAS"] == kelas]
@@ -24,8 +24,8 @@ student_data = filtered_class[filtered_class["Nama"] == student].iloc[0]
 # Report Card Table (clean integers, show 'Absent')
 report_card = pd.DataFrame({
     "Subject": subjects,
-    "Score": [
-        int(student_data[subj]) if pd.notna(student_data[subj]) else "Absent"
+    "Markah": [
+        int(student_data[subj]) if pd.notna(student_data[subj]) else " "
         for subj in subjects
     ]
 })
