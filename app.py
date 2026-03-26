@@ -25,7 +25,7 @@ student_data = filtered_class[filtered_class["Nama"] == student].iloc[0]
 report_card = pd.DataFrame({
     "Subject": subjects,
     "Markah": [
-        int(student_data[subj]) if pd.notna(student_data[subj]) else " "
+        int(student_data[subj]) if pd.notna(student_data[subj]) else "-"
         for subj in subjects
     ]
 })
@@ -33,7 +33,7 @@ st.subheader(f"Report Card: {student}")
 st.table(report_card)
 
 # Average score (ignore NaN)
-avg_score = report_card["Score"].replace(" ", pd.NA).dropna().astype(int).mean()
+avg_score = report_card["Score"].replace("-", pd.NA).dropna().astype(int).mean()
 st.metric("Overall Average Score", round(avg_score, 0))
 
 # PDF generator
