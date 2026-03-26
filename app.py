@@ -56,9 +56,3 @@ report_card = pd.DataFrame({
 st.subheader(f"Report Card: {student}")
 st.table(report_card)
 
-# Overall average
-avg_score = report_card["Score"].mean()
-st.metric("Overall Average Score", round(avg_score, 2))
-
-# Convert to CSV for download
-csv = report_card.to_csv(index=False).encode("utf-8")
