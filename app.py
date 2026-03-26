@@ -48,11 +48,5 @@ filtered_class = df[df["KELAS"] == kelas]
 student = st.selectbox("Select Student", filtered_class["Nama"])
 student_data = filtered_class[filtered_class["Nama"] == student].iloc[0]
 
-# Report Card Table
-report_card = pd.DataFrame({
-    "Subject": subjects,
-    "Score": [student_data[subj] for subj in subjects]
-})
-st.subheader(f"Report Card: {student}")
-st.table(report_card)
+
 
